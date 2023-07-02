@@ -2,11 +2,12 @@ prefix=@prefix@
 exec_prefix=@exec_prefix@
 libdir=@libdir@
 includedir=@includedir@
+package=@PACKAGE_NAME@
 
-Name: libmsgpackcf
+Name: ${package}
 Description: An Interface of MsgPack-C for FORTRAN
 URL: https://github.com/garlic-flavor/msgpack-c-f
 Version: @VERSION@
 Requires: msgpack-c
-Libs: -L${libdir} -lmsgpackcf
-Cflags: -I${includedir}/msgpackcf
+Libs: -L${libdir}/${package} -lmsgpackcf
+Cflags: -I${includedir}/${package}

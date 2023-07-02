@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.71])
-AC_INIT([libmsgpackcf], [0.1.0], [please use github.])
+AC_INIT([msgpackcf], [0.1.0], [please use github.])
 AC_CONFIG_SRCDIR([src/msgpack.f08])
 AC_CONFIG_HEADERS([config.h])
 
@@ -40,5 +40,5 @@ AC_FUNC_REALLOC
 AC_CONFIG_FILES([Makefile
                  src/Makefile
                  tests/Makefile
-                 libmsgpackcf.pc])
+                 msgpackcf.pc])
 AC_OUTPUT

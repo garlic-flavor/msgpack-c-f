@@ -69,10 +69,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/libmsgpackcf
-pkgincludedir = $(includedir)/libmsgpackcf
-pkglibdir = $(libdir)/libmsgpackcf
-pkglibexecdir = $(libexecdir)/libmsgpackcf
+pkgdatadir = $(datadir)/msgpackcf
+pkgincludedir = $(includedir)/msgpackcf
+pkglibdir = $(libdir)/msgpackcf
+pkglibexecdir = $(libexecdir)/msgpackcf
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -98,7 +98,7 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = config.h
-CONFIG_CLEAN_FILES = libmsgpackcf.pc
+CONFIG_CLEAN_FILES = msgpackcf.pc
 CONFIG_CLEAN_VPATH_FILES =
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
@@ -155,8 +155,8 @@ am__define_uniq_tagged_files = \
   done | $(am__uniquify_input)`
 DIST_SUBDIRS = $(SUBDIRS)
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in \
-	$(srcdir)/libmsgpackcf.pc.in README.md compile config.guess \
-	config.sub install-sh ltmain.sh missing
+	$(srcdir)/msgpackcf.pc.in README.md compile config.guess \
+	config.sub depcomp install-sh ltmain.sh missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -258,11 +258,11 @@ OBJDUMP = objdump
 OBJEXT = o
 OTOOL = otool
 OTOOL64 = :
-PACKAGE = libmsgpackcf
+PACKAGE = msgpackcf
 PACKAGE_BUGREPORT = please use github.
-PACKAGE_NAME = libmsgpackcf
-PACKAGE_STRING = libmsgpackcf 0.1.0
-PACKAGE_TARNAME = libmsgpackcf
+PACKAGE_NAME = msgpackcf
+PACKAGE_STRING = msgpackcf 0.1.0
+PACKAGE_TARNAME = msgpackcf
 PACKAGE_URL = 
 PACKAGE_VERSION = 0.1.0
 PATH_SEPARATOR = :
@@ -380,7 +380,7 @@ $(srcdir)/config.h.in:  $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
-libmsgpackcf.pc: $(top_builddir)/config.status $(srcdir)/libmsgpackcf.pc.in
+msgpackcf.pc: $(top_builddir)/config.status $(srcdir)/msgpackcf.pc.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 
 mostlyclean-libtool:
