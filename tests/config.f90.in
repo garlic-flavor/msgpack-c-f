@@ -1,0 +1,3 @@
+module config
+  character(len=*), parameter :: test_data = "@top_srcdir@/tests/test.dat"
+end module

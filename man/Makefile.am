@@ -1,2 +1,2 @@
-man_MANS = msgpackcf.7
+dist_man_MANS = msgpackcf.7
 

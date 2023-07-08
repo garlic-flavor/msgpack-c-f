@@ -17596,7 +17596,7 @@ fi
 
 
 
-ac_config_files="$ac_config_files Makefile src/Makefile tests/Makefile msgpackcf.pc man/Makefile"
+ac_config_files="$ac_config_files Makefile src/Makefile tests/Makefile tests/config.f90 msgpackcf.pc man/Makefile"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -18713,6 +18713,7 @@ do
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
     "tests/Makefile") CONFIG_FILES="$CONFIG_FILES tests/Makefile" ;;
+    "tests/config.f90") CONFIG_FILES="$CONFIG_FILES tests/config.f90" ;;
     "msgpackcf.pc") CONFIG_FILES="$CONFIG_FILES msgpackcf.pc" ;;
     "man/Makefile") CONFIG_FILES="$CONFIG_FILES man/Makefile" ;;
 

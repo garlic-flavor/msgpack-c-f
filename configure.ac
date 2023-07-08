@@ -40,6 +40,7 @@ AC_FUNC_REALLOC
 AC_CONFIG_FILES([Makefile
                  src/Makefile
                  tests/Makefile
+                 tests/config.f90
                  msgpackcf.pc
                  man/Makefile])
 AC_OUTPUT

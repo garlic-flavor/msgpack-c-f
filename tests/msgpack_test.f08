@@ -6,6 +6,7 @@ program tester
   use libc
   use Msgpack_raw
   use Msgpack
+  use config
   implicit none
 
   call print_sep("version.h")
@@ -151,7 +152,7 @@ contains
 
   !----------------------------------------------------------
   subroutine test_read()
-    character(*), parameter :: file_path = 'test.dat'
+    character(*), parameter :: file_path = test_data
     type (mp_unpacker) :: up
 
     call mp_unpacker_read_from_file (file_path, up)
