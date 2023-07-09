@@ -1,0 +1,13 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+package=msgpackcf
+
+Name: ${package}
+Description: An Interface of MsgPack-C for FORTRAN
+URL: https://github.com/garlic-flavor/msgpack-c-f
+Version: 0.1.0
+Requires: msgpack-c
+Libs: -L${libdir}/${package} -lmsgpackcf
+Cflags: -I${includedir}/${package}

@@ -99,8 +99,7 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES = config.f90
 CONFIG_CLEAN_VPATH_FILES =
-am_msgpacktest_OBJECTS = msgpacktest-config.$(OBJEXT) \
-	msgpacktest-msgpack_test.$(OBJEXT)
+am_msgpacktest_OBJECTS = msgpacktest-msgpack_test.$(OBJEXT)
 msgpacktest_OBJECTS = $(am_msgpacktest_OBJECTS)
 msgpacktest_DEPENDENCIES =
 AM_V_lt = $(am__v_lt_@AM_V@)
@@ -498,11 +497,13 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 CLEANFILES = *.$(FC_MODEXT)
 msgpacktest_SOURCES = \
-  config.f90 \
   msgpack_test.f08 \
   test.dat
 
-msgpacktest_FCFLAGS = '-I$(top_builddir)/src'
+msgpacktest_FCFLAGS = \
+  '-I$(top_builddir)/src' \
+  '-I$(top_builddir)/tests'
+
 msgpacktest_LDFLAGS = \
   `pkg-config --cflags --libs msgpack-c` \
   -L$(top_builddir)/src
@@ -511,7 +512,7 @@ msgpacktest_LDADD = -lmsgpackcf
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .f08 .f90 .lo .log .o .obj .test .test$(EXEEXT) .trs
+.SUFFIXES: .f08 .lo .log .o .obj .test .test$(EXEEXT) .trs
 $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -572,26 +573,11 @@ distclean-compile:
 .f08.lo:
 	$(AM_V_FC)$(LTFCCOMPILE) -c -o $@ $<
 
-msgpacktest-config.o: config.f90
-	$(AM_V_FC)$(FC) $(msgpacktest_FCFLAGS) $(FCFLAGS) -c -o msgpacktest-config.o `test -f 'config.f90' || echo '$(srcdir)/'`config.f90
-
-msgpacktest-config.obj: config.f90
-	$(AM_V_FC)$(FC) $(msgpacktest_FCFLAGS) $(FCFLAGS) -c -o msgpacktest-config.obj `if test -f 'config.f90'; then $(CYGPATH_W) 'config.f90'; else $(CYGPATH_W) '$(srcdir)/config.f90'; fi`
-
 msgpacktest-msgpack_test.o: msgpack_test.f08
 	$(AM_V_FC)$(FC) $(msgpacktest_FCFLAGS) $(FCFLAGS) -c -o msgpacktest-msgpack_test.o `test -f 'msgpack_test.f08' || echo '$(srcdir)/'`msgpack_test.f08
 
 msgpacktest-msgpack_test.obj: msgpack_test.f08
 	$(AM_V_FC)$(FC) $(msgpacktest_FCFLAGS) $(FCFLAGS) -c -o msgpacktest-msgpack_test.obj `if test -f 'msgpack_test.f08'; then $(CYGPATH_W) 'msgpack_test.f08'; else $(CYGPATH_W) '$(srcdir)/msgpack_test.f08'; fi`
-
-.f90.o:
-	$(AM_V_FC)$(FCCOMPILE) -c -o $@ $<
-
-.f90.obj:
-	$(AM_V_FC)$(FCCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
-
-.f90.lo:
-	$(AM_V_FC)$(LTFCCOMPILE) -c -o $@ $<
 
 mostlyclean-libtool:
 	-rm -f *.lo
